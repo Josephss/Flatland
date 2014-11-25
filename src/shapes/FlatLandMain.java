@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
-
+// Master each line of code
 public class FlatLandMain extends JFrame{
    /**
 	 * 
