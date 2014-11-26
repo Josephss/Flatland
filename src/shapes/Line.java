@@ -27,6 +27,5 @@ public class Line{
 			     g.drawLine(xPos1, yPos1, xPos2, yPos2);
 			     xPos1++;
 			     xPos2++;
-			     //xPos = Math.max(9,xPos-1); 
-		    } 
+	    } 
 }

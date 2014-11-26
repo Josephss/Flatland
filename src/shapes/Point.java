@@ -33,13 +33,6 @@ public class Point {
                 int width,
                 int height) -- draws the rectangle and then a circle
 		    */
-		 //   do {
-//		   xPos++;
-//		   
-//		   xPos=Math.max(xPos,xPos-1);
-		   //return;
-		  // } while (xPos >=1000);
-		    //yPos++;
 		  if(xPos+radius == 1000){
 			  movingLeft= true;
 		  }
