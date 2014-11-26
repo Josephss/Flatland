@@ -4,7 +4,7 @@ package shapes;
 public class FlatLandTester {
     public static void main(String args[]){
     	FlatLandMain f = new FlatLandMain();
-        Shapes s11 = new Shapes();
+        Shapes s11 = new Shapes(); // Create shapes Shapes Array
         f.setShapes(s11);
        // Game loop
         while(true){

@@ -8,10 +8,10 @@ public class Shapes {
 	/*
 	 * Create an abstract class and add an abstract voice for the speak ...
 	 */
-		ArrayList<Point> points;
-		ArrayList<Line> lines; 
-		ArrayList<Square> square;
-		ArrayList<Triangle> triangle;
+		ArrayList<Point> points;// Create Points arrayList	
+		ArrayList<Line> lines; // Create Line arrayList	
+		ArrayList<Square> square; // Create Square arrayList
+		ArrayList<Triangle> triangle; // Create Triangle arrayList
 		
 		public Shapes() {
 			points = new ArrayList<Point>();
