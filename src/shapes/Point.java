@@ -21,10 +21,19 @@ public class Point {
 	 
 	    public void draw(Graphics g){
 	    	g.setColor(color);
-		    g.fillOval(xPos, yPos, size, size);
+		    g.fillOval(xPos -(size/2), yPos-(size/2), size, size);
+		   /*
+		    * public FillOval(int x,
+                int y,
+                int width,
+                int height) -- draws the rectangle and then a circle
+		    */
+		 //   do {
+		   xPos++;
 		   
-		    xPos++;
-		    xPos=Math.max(10,xPos-1);
+		   xPos=Math.max(xPos,xPos-1);
+		   //return;
+		  // } while (xPos >=1000);
 		    //yPos++;
 	    }  
 	    

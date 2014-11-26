@@ -18,8 +18,10 @@ public class Shapes {
 			Point p = new Point (10,100, 10, Color.GREEN);
 			points.add(p);
 			lines = new ArrayList<Line>();
-		    Line l = new Line (200,100, 100,100, Color.BLACK);
+		    Line l = new Line (200,100, 100,100, Color.BLUE);
+		    //Line l2 = new Line (100,10, 100,100, Color.ORANGE);
 		    lines.add(l);
+		    //lines.add(l2);
 			//Create the lines ...
 			square = new ArrayList<Square>();
 		    Square s = new Square(300,300,130,Color.BLUE);

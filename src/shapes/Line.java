@@ -3,7 +3,7 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Line {
+public class Line{
 	
 	  private int xPos, yPos, size,size2;
 	  private Color color;

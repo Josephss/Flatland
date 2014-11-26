@@ -27,7 +27,7 @@ public class FlatLandMain extends JFrame{
     public void paint(Graphics g){
     	g.setColor(Color.WHITE);
     	g.fillRect(0, 0, 1000, 1000); 
-    	//setBackground(Color.white); // Set the background color to white
+    	
     	// For loop to create a line from the Line ArrayList in the shape class
     	for (int i = 0; i < shapes.lines.size(); i++) {
     		shapes.lines.get(i).draw(g);
