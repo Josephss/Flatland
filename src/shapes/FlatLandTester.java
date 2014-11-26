@@ -8,7 +8,7 @@ public class FlatLandTester {
         f.setShapes(s11);
        // Game loop
         while(true){
-            long nextTime = System.currentTimeMillis()+41;//supposed to be 41 or 42
+            long nextTime = System.currentTimeMillis()+10;//supposed to be 41 or 42
             while (System.currentTimeMillis()<nextTime);
             
             f.repaint();

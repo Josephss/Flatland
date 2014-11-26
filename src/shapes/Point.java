@@ -4,15 +4,20 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Point {
-	 private int xPos, yPos, size;
+	 private int xPos, yPos, size, radius;
 	 private Color color;
 	      
 	  public Point(int x, int y, int s, Color c){
 	        xPos=x;
 	        yPos=y;
 	        size=s;
+	        radius = size/2;
 	        color = c;
 	  }
+	  	
+	  	// Movement
+	  	boolean movingLeft;
+	  	
 	    public int getX(){return xPos;}
 	    public int getY(){return yPos;}
 	    public int getSize(){return size;}
@@ -21,7 +26,7 @@ public class Point {
 	 
 	    public void draw(Graphics g){
 	    	g.setColor(color);
-		    g.fillOval(xPos -(size/2), yPos-(size/2), size, size);
+		    g.fillOval(xPos -(radius), yPos-(radius), size, size);
 		   /*
 		    * public FillOval(int x,
                 int y,
@@ -29,12 +34,28 @@ public class Point {
                 int height) -- draws the rectangle and then a circle
 		    */
 		 //   do {
-		   xPos++;
-		   
-		   xPos=Math.max(xPos,xPos-1);
+//		   xPos++;
+//		   
+//		   xPos=Math.max(xPos,xPos-1);
 		   //return;
 		  // } while (xPos >=1000);
 		    //yPos++;
+		  if(xPos+radius == 1000){
+			  movingLeft= true;
+		  }
+		  if(xPos-radius==0){
+			  movingLeft= false;
+			  
+		  }
+		  if (movingLeft){
+			  xPos--;
+		  } else{
+			  xPos++;
+		  }
+		   
+		   
+		   
+		   
 	    }  
 	    
 }
