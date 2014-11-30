@@ -3,8 +3,11 @@ import java.awt.Color;
 
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
+
+import test_files.Critter2;
 
 // Master each line of code
 public class FlatLandMain extends JFrame{
@@ -12,15 +15,18 @@ public class FlatLandMain extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L; // Eclipse generated this line to identify it from the other class
-	Shapes shapes; // call the shapes class
+	Shapes shapers; // call the shapes class
 	
 	Point point; // call the point class
 	Line line; // call the line class
 	Triangle triangle; // call the triangle class
 	Square square; // call the square class
-	    
+	  
+	// Array list for the shapes class
+	ArrayList<Shapes> shapes;
+	   
 	public FlatLandMain(){ // Create a constructor to call the methods created down below
-
+		shapes = new ArrayList<Shapes>(); 
 		createInterface(); // Call the createInterface method
 	    setVisible (true); // Set the window visible
 	        
@@ -32,10 +38,10 @@ public class FlatLandMain extends JFrame{
     	g.fillRect(0, 0, 800, 800); 
     	
     	// For loop to create a line from the Line ArrayList in the shape class
-    	for (int i = 0; i < shapes.points.size(); i++) {
-    		shapes.points.get(i).draw(g);
-    		
-    	}
+//    	for (int i = 0; i < shapes.points.size(); i++) {
+//    		shapes.points.get(i).draw(g);
+//    		
+//    	}
 //    	// For loop to create a point from the Point ArrayList in the shape class
 //    	for (int i = 0; i < shapes.points.size(); i++) {
 //    		shapes.points.get(i).draw(g);
@@ -48,6 +54,15 @@ public class FlatLandMain extends JFrame{
 //    	for (int i = 0; i < shapes.triangle.size(); i++) {
 //    		shapes.triangle.get(i).draw(g);
 //    		}
+    	if(shapes==null){
+            return;
+        }
+  
+        for (Shapes n : shapes){
+           n.draw(g);
+        }
+    	
+    	
      }
 
     private void createInterface(){
@@ -62,9 +77,9 @@ public class FlatLandMain extends JFrame{
         setResizable(false);
         
     }
-    
-	   public void setShapes(Shapes s) {
-		   shapes = s;
+    	
+	   public void add(Shapes s) {
+		   shapes.add(s);
 	   }
 	   public void point(Point p){
 		   point = p;

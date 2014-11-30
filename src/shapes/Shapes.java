@@ -28,37 +28,37 @@ public abstract class Shapes extends JFrame{
 	/*
 	 * Create an abstract class and add an abstract voice for the speak ...
 	 */
-		ArrayList<Point> points;// Create Points arrayList	
-		ArrayList<Line> lines; // Create Line arrayList	
-		ArrayList<Square> square; // Create Square arrayLis
-	ArrayList<Triangle> triangle; // Create Triangle arrayList
-	
+//		ArrayList<Point> points;// Create Points arrayList	
+//		ArrayList<Line> lines; // Create Line arrayList	
+//		ArrayList<Square> square; // Create Square arrayLis
+//	ArrayList<Triangle> triangle; // Create Triangle arrayList
+//	
 		//ArrayList<Shapes> shapes;
 		
 		public Shapes() {
 		
-			Point p = new Point (10,100, 10, Color.GREEN);
-			points.add(p);
-		
-		    Line l = new Line (200,100, 100,100, Color.BLUE);
-		    //Line l2 = new Line (100,10, 100,100, Color.ORANGE);
-		    lines.add(l);
-		  
-			//Create the lines ...
-		
-		    Square s = new Square(300,300,130,Color.BLUE);
-		    square.add(s);
-			//Create the Square
-		
-			Triangle t = new Triangle(500,450,550,500,550,550,Color.BLACK);
-			triangle.add(t);
-			//Create the triangle
+//			Point p = new Point (10,100, 10, Color.GREEN);
+//			points.add(p);
+//		
+//		    Line l = new Line (200,100, 100,100, Color.BLUE);
+//		    //Line l2 = new Line (100,10, 100,100, Color.ORANGE);
+//		    lines.add(l);
+//		  
+//			//Create the lines ...
+//		
+//		    Square s = new Square(300,300,130,Color.BLUE);
+//		    square.add(s);
+//			//Create the Square
+//		
+//			Triangle t = new Triangle(500,450,550,500,550,550,Color.BLACK);
+//			triangle.add(t);
+//			//Create the triangle
 			
 		}
-		//@Override
-		public void Draw(Graphics g){
-			super.paint(g);
-		}
+		
+		
+		
+		
 		public void Remove(){
 			// ArrayList remove the element
 			// Arraylist.Remove
