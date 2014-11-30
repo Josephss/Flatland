@@ -2,13 +2,17 @@ package shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
+
 import javax.swing.JFrame;
 
 public abstract class Shapes extends JFrame{
 	/**
 	 * 
 	 */
+	
+	public abstract void drawShape(Graphics g);
+	public abstract void move(int xPos, int yPos);
+	
 	private static final long serialVersionUID = 1L;
 	public int HEALTH;
 	public int X;
@@ -56,7 +60,10 @@ public abstract class Shapes extends JFrame{
 			
 		}
 		
-		
+		// Draw method	
+		public void draw(Graphics gr){
+			drawShape(gr);
+		}
 		
 		
 		public void Remove(){
@@ -68,6 +75,8 @@ public abstract class Shapes extends JFrame{
 			move();
 			HEALTH--;
 		}
+		
+		
 		// Collision
 		public void isWall(){
 			

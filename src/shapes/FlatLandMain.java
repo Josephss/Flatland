@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import test_files.Critter2;
 
 // Master each line of code
 public class FlatLandMain extends JFrame{

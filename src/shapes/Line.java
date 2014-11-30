@@ -8,9 +8,9 @@ public class Line extends Shapes{
 	  /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private int xPos1, yPos1, xPos2,yPos2;
-	  private Color color;
+		  private static final long serialVersionUID = 1L;
+		  private int xPos1, yPos1, xPos2,yPos2;
+		  private Color color;
 		      
 		  public Line(int x, int y, int s,int r, Color c){
 		        xPos1=x;
@@ -22,14 +22,19 @@ public class Line extends Shapes{
 		  
 		    public int getX(){return xPos1;}
 		    public int getY(){return yPos1;}
-		  
-		    //public Color getColor(){return color;}
 		    public void setColor(Color c){color = c; }
-		    
-		    public void draw(Graphics g){
-		    	 g.setColor(color);
+		   
+			@Override
+			public void drawShape(Graphics g) {
+				// TODO Auto-generated method stub
+				 g.setColor(color);
 			     g.drawLine(xPos1, yPos1, xPos2, yPos2);
-			     xPos1++;
-			     xPos2++;
-	    } 
+			}
+
+			@Override
+			public void move(int xPos, int yPos) {
+				// TODO Auto-generated method stub
+				  xPos1++;
+				     xPos2++;
+			} 
 }

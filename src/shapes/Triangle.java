@@ -8,8 +8,8 @@ public class Triangle extends Shapes{
 	  	  /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-		private int xPos1, xPos2, xPos3, yPos1, yPos2, yPos3;
+		  private static final long serialVersionUID = 1L;
+		  private int xPos1, xPos2, xPos3, yPos1, yPos2, yPos3;
 	  	  private Color color;
 		      
 		  public Triangle(int x1,int x2, int x3, int y1, int y2, int y3, Color c){
@@ -29,17 +29,20 @@ public class Triangle extends Shapes{
 		    public int getY3(){return yPos3;}
 		    public Color getColor(){return color;}
 		    public void setColor(Color c){color = c; }
-		    
-		    public void draw(Graphics g){
-		        g.setColor(color);
+		 
+			@Override
+			public void drawShape(Graphics g) {
+				// TODO Auto-generated method stub
+				g.setColor(color);
 		        g.drawLine(xPos1,yPos1,xPos2,yPos2);
 		        g.drawLine(xPos2,yPos2,xPos3,yPos3);
 		        g.drawLine(xPos1,yPos1,xPos3,yPos3);
-		        xPos1++;
+			}
+			@Override
+			public void move(int xPos, int yPos) {
+				// TODO Auto-generated method stub
+				xPos1++;
 		        xPos2++;
 		        xPos3++;
-//		        xPos1 = Math.max(1,xPos1-1); 
-//		        xPos2 = Math.max(1,xPos2-1);
-//		        xPos3 = Math.max(1,xPos3-1); 
-		    } 
+			} 
 }
