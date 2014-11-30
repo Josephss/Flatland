@@ -3,9 +3,13 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Line{
+public class Line extends Shapes{
 	
-	  private int xPos1, yPos1, xPos2,yPos2;
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int xPos1, yPos1, xPos2,yPos2;
 	  private Color color;
 		      
 		  public Line(int x, int y, int s,int r, Color c){
@@ -18,8 +22,8 @@ public class Line{
 		  
 		    public int getX(){return xPos1;}
 		    public int getY(){return yPos1;}
-		    public int getSize(){return xPos2;}
-		    public Color getColor(){return color;}
+		  
+		    //public Color getColor(){return color;}
 		    public void setColor(Color c){color = c; }
 		    
 		    public void draw(Graphics g){

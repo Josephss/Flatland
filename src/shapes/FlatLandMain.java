@@ -13,46 +13,49 @@ public class FlatLandMain extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L; // Eclipse generated this line to identify it from the other class
 	Shapes shapes; // call the shapes class
+	
 	Point point; // call the point class
 	Line line; // call the line class
 	Triangle triangle; // call the triangle class
 	Square square; // call the square class
-    public FlatLandMain(){ // Create a constructor to call the methods created down below
-        createInterface(); // Call the createInterface method
-        setVisible (true); // Set the window visible
-        
-    }
+	    
+	public FlatLandMain(){ // Create a constructor to call the methods created down below
+
+		createInterface(); // Call the createInterface method
+	    setVisible (true); // Set the window visible
+	        
+	}
     
     // The GOD of the application
     public void paint(Graphics g){
     	g.setColor(Color.WHITE);
-    	g.fillRect(0, 0, 1000, 1000); 
+    	g.fillRect(0, 0, 800, 800); 
     	
     	// For loop to create a line from the Line ArrayList in the shape class
-    	for (int i = 0; i < shapes.lines.size(); i++) {
-    		shapes.lines.get(i).draw(g);
-    		
-    	}
-    	// For loop to create a point from the Point ArrayList in the shape class
     	for (int i = 0; i < shapes.points.size(); i++) {
     		shapes.points.get(i).draw(g);
-    		}
-    	// For loop to create a square from the Square ArrayList in the shape class
-    	for (int i = 0; i < shapes.square.size(); i++) {
-    		shapes.square.get(i).draw(g);
-    		}
-    	// For loop to create a triangle from the Triangle ArrayList in the shape class
-    	for (int i = 0; i < shapes.triangle.size(); i++) {
-    		shapes.triangle.get(i).draw(g);
-    		}
+    		
+    	}
+//    	// For loop to create a point from the Point ArrayList in the shape class
+//    	for (int i = 0; i < shapes.points.size(); i++) {
+//    		shapes.points.get(i).draw(g);
+//    		}
+//    	// For loop to create a square from the Square ArrayList in the shape class
+//    	for (int i = 0; i < shapes.square.size(); i++) {
+//    		shapes.square.get(i).draw(g);
+//    		}
+//    	// For loop to create a triangle from the Triangle ArrayList in the shape class
+//    	for (int i = 0; i < shapes.triangle.size(); i++) {
+//    		shapes.triangle.get(i).draw(g);
+//    		}
      }
 
     private void createInterface(){
     	// Comment each line of code!
     	
   
-        setSize(1000,1000); // sets the size of the window
-        setBounds(0,0, 1000, 1000);
+        setSize(800,800); // sets the size of the window
+        setBounds(0,0, 800, 800);
         setTitle("Joseph Mammo");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

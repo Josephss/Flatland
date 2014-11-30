@@ -3,9 +3,13 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Triangle {
+public class Triangle extends Shapes{
 
-	  	  private int xPos1, xPos2, xPos3, yPos1, yPos2, yPos3;
+	  	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+		private int xPos1, xPos2, xPos3, yPos1, yPos2, yPos3;
 	  	  private Color color;
 		      
 		  public Triangle(int x1,int x2, int x3, int y1, int y2, int y3, Color c){

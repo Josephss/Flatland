@@ -3,9 +3,13 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Square  {
+public class Square extends Shapes  {
 
-	  	 private int xPos, yPos, width;
+	  	 /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+		private int xPos, yPos, width;
 		 private Color color;
 		      
 		  public Square(int x, int y, int size, Color c){
@@ -16,7 +20,7 @@ public class Square  {
 		  }
 		    public int getX(){return xPos;}
 		    public int getY(){return yPos;}
-		    public int getSize(){return width;}
+		    
 		    public Color getColor(){return color;}
 		    public void setColor(Color c){color = c; }
 		    
