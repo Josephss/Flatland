@@ -27,13 +27,14 @@ public class Point extends Shapes{
 	
 	    @Override
 		public void drawShape(Graphics g) {
-			// TODO Auto-generated method stub
 			g.setColor(color);
 		    g.fillOval(xPos -(radius), yPos-(radius), size, size);
+		    xPos++;
+		    yPos++;
+		   // move();
 		}
 		@Override
 		public void move(int xPos, int yPos) {
-			// TODO Auto-generated method stub
 			  if(xPos+radius == 1000){
 				  movingLeft= true;
 			  }

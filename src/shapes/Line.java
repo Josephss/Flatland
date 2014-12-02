@@ -9,7 +9,10 @@ public class Line extends Shapes{
 	 * 
 	 */
 		  private static final long serialVersionUID = 1L;
-		  private int xPos1, yPos1, xPos2,yPos2;
+		  private int xPos1 = 12; 
+		  private int yPos1 = 12;
+		  private int xPos2 = 24;
+		  private int yPos2 = 34;
 		  private Color color;
 		      
 		  public Line(int x, int y, int s,int r, Color c){
@@ -26,15 +29,13 @@ public class Line extends Shapes{
 		   
 			@Override
 			public void drawShape(Graphics g) {
-				// TODO Auto-generated method stub
 				 g.setColor(color);
 			     g.drawLine(xPos1, yPos1, xPos2, yPos2);
 			}
 
 			@Override
 			public void move(int xPos, int yPos) {
-				// TODO Auto-generated method stub
 				  xPos1++;
-				     xPos2++;
+				  xPos2++;
 			} 
 }

@@ -95,11 +95,11 @@ public class Editor extends JApplet {
     colorBox.show(initialColor);
     redButton.setBackground(Color.yellow);
     greenButton.setBackground(Color.yellow);
-    blueButton.setBackground(Color.yellow);
+  //  blueButton.setBackground(Color.yellow);
     colorPanel.add(colorBox);
     colorPanel.add(redButton);
     colorPanel.add(greenButton);
-    colorPanel.add(blueButton);
+   // colorPanel.add(blueButton);
 
     // Use a grid layout to stack the button panels vertically.  Also,
     // give them a cyan background.

@@ -26,13 +26,11 @@ public class Square extends Shapes  {
 		   
 			@Override
 			public void drawShape(Graphics g) {
-				// TODO Auto-generated method stub
 				 g.setColor(color);
 			     g.fillRect(xPos, yPos, width, height);
 			}
 			@Override
 			public void move(int xPos, int yPos) {
-				// TODO Auto-generated method stub
 				xPos++;
 				yPos++;
 			} 

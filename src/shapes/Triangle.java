@@ -32,15 +32,14 @@ public class Triangle extends Shapes{
 		 
 			@Override
 			public void drawShape(Graphics g) {
-				// TODO Auto-generated method stub
 				g.setColor(color);
 		        g.drawLine(xPos1,yPos1,xPos2,yPos2);
 		        g.drawLine(xPos2,yPos2,xPos3,yPos3);
 		        g.drawLine(xPos1,yPos1,xPos3,yPos3);
+		        //move();
 			}
 			@Override
 			public void move(int xPos, int yPos) {
-				// TODO Auto-generated method stub
 				xPos1++;
 		        xPos2++;
 		        xPos3++;
