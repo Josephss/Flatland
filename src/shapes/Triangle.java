@@ -8,6 +8,9 @@ public class Triangle extends Shapes{
 	  	  /**
 	 * 
 	 */
+	// Movement
+	  	boolean movingLeft;
+	  	
 		  private static final long serialVersionUID = 1L;
 		  private int xPos1, xPos2, xPos3, yPos1, yPos2, yPos3;
 	  	  private Color color;
@@ -37,6 +40,25 @@ public class Triangle extends Shapes{
 		        g.drawLine(xPos2,yPos2,xPos3,yPos3);
 		        g.drawLine(xPos1,yPos1,xPos3,yPos3);
 		        //move();
+		      
+		        if((xPos1) == 800){
+					  movingLeft= true;
+				  }
+				  if((xPos1)==0){
+					  movingLeft= false;
+					  
+				  }
+				  if (movingLeft){
+					  xPos1--;
+					  xPos2--;
+					  xPos3--;
+				  } else{
+					  xPos1++;
+					  xPos2++;
+					  xPos3++;
+				  }
+				  
+		        
 			}
 			@Override
 			public void move(int xPos, int yPos) {

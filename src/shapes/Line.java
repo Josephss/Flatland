@@ -8,6 +8,10 @@ public class Line extends Shapes{
 	  /**
 	 * 
 	 */
+	
+	// Movement
+	  	boolean movingLeft;
+	  	
 		  private static final long serialVersionUID = 1L;
 		  private int xPos1 = 12; 
 		  private int yPos1 = 12;
@@ -31,6 +35,23 @@ public class Line extends Shapes{
 			public void drawShape(Graphics g) {
 				 g.setColor(color);
 			     g.drawLine(xPos1, yPos1, xPos2, yPos2);
+//			     xPos1++;
+//			     xPos2++;
+			     
+			     if(xPos1 == 800){
+					  movingLeft= true;
+				  }
+				  if(xPos1+xPos2==0){
+					  movingLeft= false;
+					  
+				  }
+				  if (movingLeft){
+					  xPos1--;
+					  xPos2--;
+				  } else{
+					  xPos1++;
+					  xPos2++;
+				  }
 			}
 
 			@Override

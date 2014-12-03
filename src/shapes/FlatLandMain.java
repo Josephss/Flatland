@@ -1,4 +1,5 @@
 package shapes;
+// Imports
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -18,11 +19,12 @@ public class FlatLandMain extends JFrame{
 		shapes = new ArrayList<Shapes>(); 
 		createInterface(); // Call the createInterface method
 	    setVisible (true); // Set the window visible
+	    setLocationRelativeTo(null); // Centers the JFrame by removing the default layout
 	    }
     
     // The GOD of the application
     public void paint(Graphics g){
-    	g.setColor(Color.WHITE);
+    	g.setColor(Color.orange);
     	g.fillRect(0, 0, 800, 800); 
     	if(shapes==null){
             return;
@@ -35,7 +37,6 @@ public class FlatLandMain extends JFrame{
     }
 
     private void createInterface(){
-    	// Comment each line of code!
     	setSize(800,800); // sets the size of the window
         setBounds(0,0, 800, 800);
         setTitle("Joseph Mammo");
@@ -44,8 +45,8 @@ public class FlatLandMain extends JFrame{
         setResizable(false);
         
     }
-    	
-	   public void add(Shapes s) {
+    public void add(Shapes s) {
 		   shapes.add(s);
-	   }
+	   
+    }
 }

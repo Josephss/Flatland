@@ -2,6 +2,7 @@ package shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+//import java.util.Random;
 
 public class Point extends Shapes{
 	/**
@@ -29,9 +30,25 @@ public class Point extends Shapes{
 		public void drawShape(Graphics g) {
 			g.setColor(color);
 		    g.fillOval(xPos -(radius), yPos-(radius), size, size);
-		    xPos++;
-		    yPos++;
+//		    xPos++;
+//		    yPos++;
 		   // move();
+//		    Random R = new Random(System.currentTimeMillis());
+//		    xPos = R.nextInt(10);
+//		    yPos = R.nextInt(10);
+		    
+		    if(xPos+radius == 800){
+				  movingLeft= true;
+			  }
+			  if(xPos-radius==0){
+				  movingLeft= false;
+				  
+			  }
+			  if (movingLeft){
+				  xPos--;
+			  } else{
+				  xPos++;
+			  }
 		}
 		@Override
 		public void move(int xPos, int yPos) {

@@ -3,7 +3,6 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
 
 public abstract class Shapes extends JFrame{

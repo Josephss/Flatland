@@ -8,7 +8,10 @@ public class Square extends Shapes  {
 	  	 /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	// Movement
+  	boolean movingLeft;
+  	
+		 private static final long serialVersionUID = 1L;
 		 private int xPos, yPos, width, height;
 		 private Color color;
 		      
@@ -28,6 +31,20 @@ public class Square extends Shapes  {
 			public void drawShape(Graphics g) {
 				 g.setColor(color);
 			     g.fillRect(xPos, yPos, width, height);
+			     
+			     if((xPos+width) == 800){
+					  movingLeft= true;
+				  }
+				  if((xPos)==0){
+					  movingLeft= false;
+					  
+				  }
+				  if (movingLeft){
+					  xPos--;
+				  } else{
+					  xPos++;
+				  }
+				  
 			}
 			@Override
 			public void move(int xPos, int yPos) {
