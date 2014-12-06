@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class FlatLandMain extends JFrame{
@@ -25,28 +26,28 @@ public class FlatLandMain extends JFrame{
 	// Array list for the shapes class
 	static ArrayList<Shapes> shapes;
 	
-	private JFormattedTextField xPos_Input;
-	private JFormattedTextField yPos_Input;
-  
+	private static JFormattedTextField xPos_Input;
+	private static JFormattedTextField yPos_Input;
+	
+	private static JLabel xPosLabel;
+	private static JLabel yPosLabel;
+	
+	
 	public FlatLandMain(){ // Create a constructor to call the methods created down below
 		shapes = new ArrayList<Shapes>(); 
 		createInterface(); // Call the createInterface method
 	    setVisible (true); // Set the window visible
 	    setLocationRelativeTo(null); // Centers the JFrame by removing the default layout
-	   // buttons();
+	
 	    }
- 
-    // The GOD of the application
+	
     public void paint(Graphics g){
-    	setAlwaysOnTop(true);// -- Sample code
     	g.setColor(Color.orange);
-    	//g.fillRect(0, 0, 800, 800);
-    	g.fillRect (0, 75, 800, 800);
+    	g.fillRect (0, 80, 800, 800);
     	if(shapes==null){
             return;
         }
-  
-        for (Shapes n : shapes){
+    	for (Shapes n : shapes){
            n.draw(g);
            
         }
@@ -61,20 +62,20 @@ public class FlatLandMain extends JFrame{
         setResizable(false);
         buttonCode();
         x$y_Input();
+        showLabel();
     }
     public void add(Shapes s) {
 		   shapes.add(s);
 	   
     }
     public void buttonCode(){
-    	
-        JPanel panel = new JPanel();
-        add(panel);
+    	JPanel panel = new JPanel();
+        add(panel, BorderLayout.CENTER);
         JButton button = new JButton("Point");
         panel.add(button);
         button.addActionListener (new Action1());
 
-        JButton button2 = new JButton("LIne");
+        JButton button2 = new JButton("Line");
         panel.add(button2);
         button2.addActionListener (new Action2());
         
@@ -85,43 +86,74 @@ public class FlatLandMain extends JFrame{
         JButton button4 = new JButton("Square");
         panel.add(button4);
         button4.addActionListener (new Action4());
-        
-     
         panel.add(button5);
         button5.addActionListener (new Action5());
-        
-      
+
         panel.add(button6);
         button6.addActionListener (new Action6());
-        
-       
-        
+             
     }
     // Button one Action listener
     static class Action1 implements ActionListener {        
-    	  public void actionPerformed (ActionEvent e) {     
-    		 Point p = new Point (190,290, 20, Color.GREEN);
+    	  public void actionPerformed (ActionEvent e) {
+    		  int x =0;
+    		  int y = 0;
+              try{
+                  x=Integer.parseInt(xPos_Input.getText());
+                  y=Integer.parseInt(yPos_Input.getText());
+              }
+              catch(NumberFormatException ex){
+                 // status.setText("Please input an integer number.");
+              }
+    		 Point p = new Point (x,y, 20, Color.GREEN);
     		  shapes.add(p);
     	  }
     	}  
     // Button two Action listener
     static class Action2 implements ActionListener {        
-      public void actionPerformed (ActionEvent e) {     
-    	  	Line l = new Line (200,100, 100,100, Color.RED);
+      public void actionPerformed (ActionEvent e) { 
+    	  int x =0;
+		  int y = 0;
+          try{
+              x=Integer.parseInt(xPos_Input.getText());
+              y=Integer.parseInt(yPos_Input.getText());
+          }
+          catch(NumberFormatException ex){
+             // status.setText("Please input an integer number.");
+          }
+    	  	Line l = new Line (x,100, 100,y, Color.RED);
     	  	  shapes.add(l);
       }
     }
     // Button three Action Listener
     static class Action3 implements ActionListener {        
         public void actionPerformed (ActionEvent e) {     
-        	Triangle t = new Triangle(500,450,550,500,550,550,Color.WHITE);
+        	int x =0;
+  		    int y = 0;
+            try{
+                x=Integer.parseInt(xPos_Input.getText());
+                y=Integer.parseInt(yPos_Input.getText());
+            }
+            catch(NumberFormatException ex){
+               // status.setText("Please input an integer number.");
+            }
+        	Triangle t = new Triangle(x,450,550,y,550,550,Color.WHITE); // y=500
         	shapes.add(t);
         }
       }
     // Button three Action Listener
     static class Action4 implements ActionListener {        
-        public void actionPerformed (ActionEvent e) {     
-        	Square s = new Square(300,300,130,130, Color.CYAN);
+        public void actionPerformed (ActionEvent e) { 
+        	int x =0;
+  		    int y = 0;
+            try{
+                x=Integer.parseInt(xPos_Input.getText());
+                y=Integer.parseInt(yPos_Input.getText());
+            }
+            catch(NumberFormatException ex){
+               // status.setText("Please input an integer number.");
+            }
+        	Square s = new Square(x,y,130,130, Color.CYAN);
         	shapes.add(s);
         }
       }
@@ -145,17 +177,33 @@ public class FlatLandMain extends JFrame{
     // x and y Position input method
     public void x$y_Input(){
     	  xPos_Input = new JFormattedTextField(xPos_Input);
-    	  xPos_Input.setValue(1);
-    	  xPos_Input.setColumns(3);
+    	  xPos_Input.setValue(200);
+    	  xPos_Input.setColumns(5);
     	  xPos_Input.setLocation(20,10);
+    	  xPos_Input.setSize(10,20);
     	  yPos_Input = new JFormattedTextField(yPos_Input);
-    	  yPos_Input.setValue(3);
-    	  yPos_Input.setColumns(3);
+    	  yPos_Input.setValue(100);
+    	  yPos_Input.setColumns(5);
     	  yPos_Input.setLocation(20,10);
     	  JPanel panel2 = new JPanel();
-    	  add(panel2, BorderLayout.LINE_END);
+    	  add(panel2, BorderLayout.LINE_START);
+//    	  xPosLable.setText("xPos: ");
+//    	  yPosLable.setText("yPos: ");
+    	  //panel2.add(xPosLable);
     	  panel2.add(xPos_Input);
+    	 // panel2.add(yPosLable);
     	  panel2.add(yPos_Input);
     }
-    
+    public JFormattedTextField getxPos_Input(){
+    	return xPos_Input;
+    }
+    public JFormattedTextField getyPos_Input(){
+    	return yPos_Input;
+    }
+    private void showLabel(){
+        xPosLabel = new JLabel ("Please enter x and the y postion.");
+        xPosLabel.setBounds(10, 75, 30, 30);
+        xPosLabel.setLocation(50,10);
+        add(xPosLabel, BorderLayout.PAGE_START);
+    }
 }
