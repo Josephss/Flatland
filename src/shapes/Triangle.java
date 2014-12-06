@@ -39,8 +39,12 @@ public class Triangle extends Shapes{
 		        g.drawLine(xPos1,yPos1,xPos2,yPos2);
 		        g.drawLine(xPos2,yPos2,xPos3,yPos3);
 		        g.drawLine(xPos1,yPos1,xPos3,yPos3);
-		        //move();
-		      
+		        move();
+			}
+			@Override
+			public void move() {
+				//move();
+			      
 		        if((xPos1) == 800){
 					  movingLeft= true;
 				  }
@@ -61,9 +65,8 @@ public class Triangle extends Shapes{
 		        
 			}
 			@Override
-			public void move(int xPos, int yPos) {
-				xPos1++;
-		        xPos2++;
-		        xPos3++;
+			public void collision() {
+				// TODO Auto-generated method stub
+				
 			} 
 }

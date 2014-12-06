@@ -10,7 +10,8 @@ public class Line extends Shapes{
 	 */
 	
 	// Movement
-	  	boolean movingLeft;
+	      boolean movingLeft;
+	      boolean movingUp;
 	  	
 		  private static final long serialVersionUID = 1L;
 		  private int xPos1 = 12; 
@@ -35,14 +36,24 @@ public class Line extends Shapes{
 			public void drawShape(Graphics g) {
 				 g.setColor(color);
 			     g.drawLine(xPos1, yPos1, xPos2, yPos2);
-//			     xPos1++;
-//			     xPos2++;
-			     
-			     if(xPos1 == 800){
+			     move();
+			}
+			
+
+			@Override
+			public void move() {
+				if(xPos1 == 800){
 					  movingLeft= true;
 				  }
 				  if(xPos1+xPos2==0){
 					  movingLeft= false;
+					  
+				  }
+				  if(yPos1 == 800){
+					  movingUp= true;
+				  }
+				  if(yPos1+xPos2==0){
+					  movingUp= false;
 					  
 				  }
 				  if (movingLeft){
@@ -52,11 +63,18 @@ public class Line extends Shapes{
 					  xPos1++;
 					  xPos2++;
 				  }
+				  if (movingUp){
+					  yPos1--;
+					  yPos1--;
+				  } else{
+					  yPos++;
+					  yPos++;
+				  }
 			}
 
 			@Override
-			public void move(int xPos, int yPos) {
-				  xPos1++;
-				  xPos2++;
+			public void collision() {
+				// TODO Auto-generated method stub
+				
 			} 
 }

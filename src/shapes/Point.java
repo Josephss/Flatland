@@ -12,11 +12,15 @@ public class Point extends Shapes{
 
 	// Movement
   	boolean movingLeft;
-	
+  	boolean movingUp;
+	public int Facing =1;
 	private int xPos, yPos, size, radius;
 	private Color color;
-	      
-		  public Point(int x, int y, int s, Color c){
+	// Facing
+	//private int facing;
+    public int up = 0, right = 1, down = 2, left = 3;
+		 
+    public Point(int x, int y, int s, Color c){
 		        xPos=x;
 		        yPos=y;
 		        size=s;
@@ -30,40 +34,66 @@ public class Point extends Shapes{
 		public void drawShape(Graphics g) {
 			g.setColor(color);
 		    g.fillOval(xPos -(radius), yPos-(radius), size, size);
-//		    xPos++;
-//		    yPos++;
-		   // move();
-//		    Random R = new Random(System.currentTimeMillis());
-//		    xPos = R.nextInt(10);
-//		    yPos = R.nextInt(10);
-		    
-		    if(xPos+radius == 800){
-				  movingLeft= true;
-			  }
-			  if(xPos-radius==0){
-				  movingLeft= false;
-				  
-			  }
-			  if (movingLeft){
-				  xPos--;
-			  } else{
-				  xPos++;
-			  }
+		    this.mover();
+	    }
+		
+		@Override
+		public void move() {
+			// TODO Auto-generated method stub
 		}
 		@Override
-		public void move(int xPos, int yPos) {
-			  if(xPos+radius == 1000){
-				  movingLeft= true;
-			  }
-			  if(xPos-radius==0){
-				  movingLeft= false;
-				  
-			  }
-			  if (movingLeft){
-				  xPos--;
-			  } else{
-				  xPos++;
-			  }
+		public void collision() {
+			switch(Facing){
+		    case 0:
+		    	Facing = 3;
+		    	break;
+		    case 1:
+		    	Facing = 0;
+		    	break;
+		    case 2:
+		    	Facing = 2;
+		    	break;
+		    case 3: 
+		    	Facing = 1;
+		    	break;
+		    default:
+		    	break;
+		    
+		    }
 		}  
+		
+		public void mover(){
+			if (((xPos)) == 800){
+				collision();
+			} 
+			if ((xPos) == 0){
+				collision();
+			} 
+			if (yPos == 800){
+				collision();
+			}
+			if (xPos == 0){
+				collision();
+			}
+			    switch(Facing){
+			    case 0: 
+			    	yPos--;
+			    	break;
+			    case 1:
+			    	xPos++;
+			    	break;
+			    case 2:
+			    	yPos++;
+			    	break;
+			    case 3:
+			    	xPos--;
+			    	break;
+			    default:
+			    	break;
+			    
+			    }
+			    
+			  }
+		
 	    
 }

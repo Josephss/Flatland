@@ -1,9 +1,4 @@
 package shapes;
-
-/**
- *
- * @author Joseph
- */
 public class Movement { 
 
      

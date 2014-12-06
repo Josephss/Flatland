@@ -3,6 +3,8 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Random;
+
 import javax.swing.JFrame;
 
 public abstract class Shapes extends JFrame{
@@ -11,29 +13,23 @@ public abstract class Shapes extends JFrame{
 	 */
 	// Abstract methods
 	public abstract void drawShape(Graphics g);
-	public abstract void move(int xPos, int yPos);
+	public abstract void move();
+	public abstract void collision();
 	
 	// Global variables
 	private static final long serialVersionUID = 1L;
 	public int HEALTH;
-	public int X;
-	public int Y;
+	public int xPos;
+	public int yPos;
 	public Color COLOR;
-	public int FACING;
+	public int FACING =1;
 	
-	// Global final variables for the moving the objects
-	public final int YUP =1;
-	public final int Y_XRIGHT =2;
-	public final int XRIGHT =3;
-	public final int X_YRIGHT =4;
-	public final int YDOWN=5;
-	public final int Y_XLEFT=6;
-	public final int XLEFT=7;
-	public final int X_YLEFT=8;
 	
 	// ArrayList to hold unlimited shapes
 	ArrayList<Shapes> shapes;
-		
+	public int getFacing(){
+		return FACING;
+	}
 		public Shapes() {}
 		
 		// Draw method	
@@ -45,40 +41,26 @@ public abstract class Shapes extends JFrame{
 			move();
 			HEALTH--;
 		}
-		public int move(){
-			switch(FACING){
-            case 0:
-            	FACING = YUP;
-                break;
-            case 1:
-            	FACING = YDOWN;
-                break;
-            case 2:
-            	FACING = XRIGHT;
-                break;
-            case 3:
-            	FACING = XLEFT;
-                break;
-            default:
-                System.out.println("Please try agian!");
-                break;
-        }
-       return FACING;
-       
+		public void move_1(){
+			Random random = new Random();
+			//for (int i = 0; i < 20; i++) {
+            int randXLoc = random.nextInt(10);
+            int randYLoc = random.nextInt(20);
+            xPos = randXLoc;
+    		yPos = randYLoc;
+			//}
+		
+			
 		}
 		
+		public void hasCollided(){
+					
+		}
+		public void Remove(int n){
+			shapes.remove(n);
+		}
 		
-		// Collision
-				public void isWall(){
-					
-				}
-				public void isShape(){
-					
-				}
-				public void Remove(){
-					// ArrayList remove the element
-					// Arraylist.Remove
-					
-				}
+		 public int getX(){return xPos;}
+		 public int getY(){return yPos;}
 		
 }
