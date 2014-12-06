@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,8 +30,7 @@ public class FlatLandMain extends JFrame{
 	private static JFormattedTextField yPos_Input;
 	
 	private static JLabel xPosLabel;
-	private static JLabel yPosLabel;
-	
+	private static Color coloring;
 	
 	public FlatLandMain(){ // Create a constructor to call the methods created down below
 		shapes = new ArrayList<Shapes>(); 
@@ -91,7 +90,10 @@ public class FlatLandMain extends JFrame{
 
         panel.add(button6);
         button6.addActionListener (new Action6());
-             
+        
+        JButton button7 = new JButton("Color");
+        button7.addActionListener(new Action7());
+        panel.add(button7);
     }
     // Button one Action listener
     static class Action1 implements ActionListener {        
@@ -105,7 +107,7 @@ public class FlatLandMain extends JFrame{
               catch(NumberFormatException ex){
                  // status.setText("Please input an integer number.");
               }
-    		 Point p = new Point (x,y, 20, Color.GREEN);
+    		 Point p = new Point (x,y, 20, coloring);
     		  shapes.add(p);
     	  }
     	}  
@@ -121,7 +123,7 @@ public class FlatLandMain extends JFrame{
           catch(NumberFormatException ex){
              // status.setText("Please input an integer number.");
           }
-    	  	Line l = new Line (x,100, 100,y, Color.RED);
+    	  	Line l = new Line (x,100, 100,y, coloring);
     	  	  shapes.add(l);
       }
     }
@@ -137,11 +139,11 @@ public class FlatLandMain extends JFrame{
             catch(NumberFormatException ex){
                // status.setText("Please input an integer number.");
             }
-        	Triangle t = new Triangle(x,450,550,y,550,550,Color.WHITE); // y=500
+        	Triangle t = new Triangle(x,450,550,y,550,550,coloring); // y=500
         	shapes.add(t);
         }
       }
-    // Button three Action Listener
+    // Button four Action Listener
     static class Action4 implements ActionListener {        
         public void actionPerformed (ActionEvent e) { 
         	int x =0;
@@ -153,25 +155,32 @@ public class FlatLandMain extends JFrame{
             catch(NumberFormatException ex){
                // status.setText("Please input an integer number.");
             }
-        	Square s = new Square(x,y,130,130, Color.CYAN);
+        	Square s = new Square(x,y,130,130, coloring);
         	shapes.add(s);
         }
       }
     
-    // Button three Action Listener
+    // Button five Action Listener
     static class Action5 implements ActionListener {        
         public void actionPerformed (ActionEvent e) {     
         	// call chebychev method
+        	
         	button5.setEnabled(false);
         	button6.setEnabled(true);
         }
       }
-    // Button three Action Listener
+    // Button six Action Listener
     static class Action6 implements ActionListener {        
         public void actionPerformed (ActionEvent e) {     
         	// call manhattan method
         	button5.setEnabled(true);
         	button6.setEnabled(false);
+        }
+      }
+    // Button seven Action Listener
+    static class Action7 implements ActionListener {        
+        public void actionPerformed (ActionEvent e) {     
+        	colorChooser();
         }
       }
     // x and y Position input method
@@ -187,11 +196,7 @@ public class FlatLandMain extends JFrame{
     	  yPos_Input.setLocation(20,10);
     	  JPanel panel2 = new JPanel();
     	  add(panel2, BorderLayout.LINE_START);
-//    	  xPosLable.setText("xPos: ");
-//    	  yPosLable.setText("yPos: ");
-    	  //panel2.add(xPosLable);
     	  panel2.add(xPos_Input);
-    	 // panel2.add(yPosLable);
     	  panel2.add(yPos_Input);
     }
     public JFormattedTextField getxPos_Input(){
@@ -205,5 +210,11 @@ public class FlatLandMain extends JFrame{
         xPosLabel.setBounds(10, 75, 30, 30);
         xPosLabel.setLocation(50,10);
         add(xPosLabel, BorderLayout.PAGE_START);
+    }
+    public static void colorChooser(){
+    	 JFrame frame = new JFrame();
+    	 Color color = JColorChooser.showDialog(frame, "Choose a color", Color.blue);
+    	 coloring = color;
+    	 //System.out.println("The selected color was:" + color);
     }
 }
