@@ -30,7 +30,11 @@ public class FlatLandMain extends JFrame{
 	private static JFormattedTextField yPos_Input;
 	
 	private static JLabel xPosLabel;
+	public static JLabel health;
 	private static Color coloring;
+	
+	// Selected movement
+	public static int selectedMovement =0; // Manattan = 0; Chebychev =1;
 	
 	public FlatLandMain(){ // Create a constructor to call the methods created down below
 		shapes = new ArrayList<Shapes>(); 
@@ -62,6 +66,7 @@ public class FlatLandMain extends JFrame{
         buttonCode();
         x$y_Input();
         showLabel();
+        button5.setEnabled(false);
     }
     public void add(Shapes s) {
 		   shapes.add(s);
@@ -94,6 +99,10 @@ public class FlatLandMain extends JFrame{
         JButton button7 = new JButton("Color");
         button7.addActionListener(new Action7());
         panel.add(button7);
+        
+        JButton button8 = new JButton("Clear");
+        button8.addActionListener(new Action8());
+        panel.add(button8);
     }
     // Button one Action listener
     static class Action1 implements ActionListener {        
@@ -123,7 +132,7 @@ public class FlatLandMain extends JFrame{
           catch(NumberFormatException ex){
              // status.setText("Please input an integer number.");
           }
-    	  	Line l = new Line (x,100, 100,y, coloring);
+    	  	Line l = new Line (x,100, 100,100, coloring);
     	  	  shapes.add(l);
       }
     }
@@ -163,24 +172,31 @@ public class FlatLandMain extends JFrame{
     // Button five Action Listener
     static class Action5 implements ActionListener {        
         public void actionPerformed (ActionEvent e) {     
-        	// call chebychev method
-        	
+        	selectedMovement = 0;
         	button5.setEnabled(false);
         	button6.setEnabled(true);
+        	System.out.println(selectedMovement);
         }
       }
     // Button six Action Listener
     static class Action6 implements ActionListener {        
         public void actionPerformed (ActionEvent e) {     
-        	// call manhattan method
+        	selectedMovement =1;
         	button5.setEnabled(true);
         	button6.setEnabled(false);
+        	System.out.println(selectedMovement);
         }
       }
     // Button seven Action Listener
     static class Action7 implements ActionListener {        
         public void actionPerformed (ActionEvent e) {     
         	colorChooser();
+        }
+      }
+    // Button seven Action Listener
+    static class Action8 implements ActionListener {        
+        public void actionPerformed (ActionEvent e) {     
+          	//shapes = new ArrayList<Shapes>();
         }
       }
     // x and y Position input method
@@ -210,11 +226,15 @@ public class FlatLandMain extends JFrame{
         xPosLabel.setBounds(10, 75, 30, 30);
         xPosLabel.setLocation(50,10);
         add(xPosLabel, BorderLayout.PAGE_START);
+        
+//        health = new JLabel ("He " );
+//        health.setBounds(10, 75, 30, 30);
+//       // health.setLocation(50,10);
+//        add(health, BorderLayout.WEST);
     }
     public static void colorChooser(){
     	 JFrame frame = new JFrame();
-    	 Color color = JColorChooser.showDialog(frame, "Choose a color", Color.blue);
+    	 Color color = JColorChooser.showDialog(frame, "Choose a color", Color.red);
     	 coloring = color;
-    	 //System.out.println("The selected color was:" + color);
     }
 }

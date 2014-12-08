@@ -3,7 +3,6 @@ package shapes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Random;
 
 import javax.swing.JFrame;
 
@@ -19,12 +18,10 @@ public abstract class Shapes extends JFrame{
 	// Global variables
 	private static final long serialVersionUID = 1L;
 	public int HEALTH;
-	public int xPos;
-	public int yPos;
+	public int movementType;
 	public Color COLOR;
+	
 	public int FACING =1;
-	
-	
 	// ArrayList to hold unlimited shapes
 	ArrayList<Shapes> shapes;
 	public int getFacing(){
@@ -38,21 +35,9 @@ public abstract class Shapes extends JFrame{
 		}
 		
 		public void update(){
-			move();
+			//move();
 			HEALTH--;
 		}
-		public void move_1(){
-			Random random = new Random();
-			//for (int i = 0; i < 20; i++) {
-            int randXLoc = random.nextInt(10);
-            int randYLoc = random.nextInt(20);
-            xPos = randXLoc;
-    		yPos = randYLoc;
-			//}
-		
-			
-		}
-		
 		public void hasCollided(){
 					
 		}
@@ -60,7 +45,5 @@ public abstract class Shapes extends JFrame{
 			shapes.remove(n);
 		}
 		
-		 public int getX(){return xPos;}
-		 public int getY(){return yPos;}
 		
 }

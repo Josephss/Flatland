@@ -52,7 +52,7 @@ public class Line extends Shapes{
 				  if(yPos1 == 800){
 					  movingUp= true;
 				  }
-				  if(yPos1+xPos2==0){
+				  if((yPos1&yPos2)==85){
 					  movingUp= false;
 					  
 				  }
@@ -65,10 +65,10 @@ public class Line extends Shapes{
 				  }
 				  if (movingUp){
 					  yPos1--;
-					  yPos1--;
+					  yPos2--;
 				  } else{
-					  yPos++;
-					  yPos++;
+					  yPos1++;
+					  yPos2++;
 				  }
 			}
 
