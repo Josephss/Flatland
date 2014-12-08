@@ -46,7 +46,7 @@ public class FlatLandMain extends JFrame {
 	}
 
 	public void paint(Graphics g) {
-		g.setColor(Color.ORANGE);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 80, 800, 800);
 		if (shapes == null) {
 			return;
@@ -68,7 +68,7 @@ public class FlatLandMain extends JFrame {
 				}
 			}
 			shapes.get(i).update();
-			System.out.println("Health of the shapes: "+shapes.get(i).HEALTH);
+			//System.out.println("Health of the shapes: "+shapes.get(i).HEALTH);
 		}
 	}
 
