@@ -46,7 +46,7 @@ public class FlatLandMain extends JFrame {
 	}
 
 	public void paint(Graphics g) {
-		g.setColor(Color.orange);
+		g.setColor(Color.ORANGE);
 		g.fillRect(0, 80, 800, 800);
 		if (shapes == null) {
 			return;
@@ -68,6 +68,7 @@ public class FlatLandMain extends JFrame {
 				}
 			}
 			shapes.get(i).update();
+			System.out.println("Health of the shapes: "+shapes.get(i).HEALTH);
 		}
 	}
 
@@ -145,7 +146,7 @@ public class FlatLandMain extends JFrame {
 			} catch (NumberFormatException ex) {
 				// status.setText("Please input an integer number.");
 			}
-			Line l = new Line(x, y, 100, coloring);
+			Line l = new Line(x, y, 300, coloring);
 			shapes.add(l);
 		}
 	}
@@ -240,10 +241,6 @@ public class FlatLandMain extends JFrame {
 		xPosLabel.setLocation(50, 10);
 		add(xPosLabel, BorderLayout.PAGE_START);
 
-		// health = new JLabel ("He " );
-		// health.setBounds(10, 75, 30, 30);
-		// // health.setLocation(50,10);
-		// add(health, BorderLayout.WEST);
 	}
 
 	public static void colorChooser() {

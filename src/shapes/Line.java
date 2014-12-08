@@ -14,7 +14,6 @@ public class Line extends Shapes {
 	boolean movingLeft;
 	boolean movingUp;
 
-	private static final long serialVersionUID = 1L;
 	private int xPos1 = 12;
 	private int yPos1 = 12;
 	private int xPos2 = 24;

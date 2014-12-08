@@ -171,8 +171,8 @@ public class Point extends Shapes {
 	}
 
 	public void ChebyChev() {
-		Facing = 5;
-		move();
+//		Facing = 5;
+//		move();
 	}
 
 }

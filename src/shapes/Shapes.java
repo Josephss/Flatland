@@ -41,18 +41,18 @@ public class Shapes {
 	}
 
 	public boolean hasCollided(Shapes e) {
-		int ex = e.xPos;
-		int ey = e.yPos;
-		if (ex >=xPos - 24 && ex <= xPos + 24 * 2 && ey + 24 >= yPos && ey < yPos) {
+		int shapeXpos = e.xPos;
+		int shapeYpos = e.yPos;
+		if (shapeXpos >=xPos - 24 && shapeXpos <= xPos + 24 * 2 && shapeYpos + 24 >= yPos && shapeYpos < yPos) {
 			return true;
 		}
-		if (ex >= xPos - 24 && ex <=xPos + 24 * 2 && ey <= yPos + 24 && ey > yPos) {
+		if (shapeXpos >= xPos - 24 && shapeXpos <=xPos + 24 * 2 && shapeYpos <= yPos + 24 && shapeYpos > yPos) {
 			return true;
 		}
-		if (ey >= yPos - 24 && ey <= yPos + 24 * 2 && ex + 24 >= xPos && ex < xPos) {
+		if (shapeYpos >= yPos - 24 && shapeYpos <= yPos + 24 * 2 && shapeXpos + 24 >= xPos && shapeXpos < xPos) {
 			return true;
 		}
-		if (ey >= yPos - 24 && ey <= yPos + 24 * 2 && ex <= xPos + 24 && ex > xPos) {
+		if (shapeYpos >= yPos - 24 && shapeYpos <= yPos + 24 * 2 && shapeXpos <= xPos + 24 && shapeXpos > xPos) {
 			return true;
 		}
 		return false;
