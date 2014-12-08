@@ -2,48 +2,20 @@ package shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
-//import java.util.Random;
 import java.util.Random;
 
-public class Point extends Shapes {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+//import java.util.Random;
 
-	// Movement
-	boolean movingLeft;
-	boolean movingUp;
-	public int Facing = 0;
-	private int xPos, yPos, size, radius;
-	private Color color;
-	// Facing
-	// private int facing;
-	public int up = 0, right = 1, down = 2, left = 3;
+public class Point extends Shapes {
 
 	public Point(int x, int y, int s, Color c) {
-		xPos = x;
-		yPos = y;
-		size = s;
-		radius = size / 2;
-		color = c;
-	}
-
-	public int getX() {
-		return xPos;
-	}
-
-	public int getY() {
-		return yPos;
+		super(x,y,s,c);
 	}
 
 	@Override
 	public void drawShape(Graphics g) {
 		g.setColor(color);
 		g.fillOval(xPos - (radius), yPos - (radius), size, size);
-
-		this.Manhattan();
-
 	}
 
 	@Override
@@ -89,58 +61,60 @@ public class Point extends Shapes {
 	Random r = new Random();
 
 	@Override
-		public void collision() {
-		System.out.println(""+xPos+" "+yPos+" "+Facing);
-			int nf;
-			if(FlatLandMain.selectedMovement == 0) {
-				nf=Facing;
-				while(nf==Facing){
-					nf = r.nextInt(4);
-				}
-			}else {
-				while(true) {
-					nf = r.nextInt(8);
-					if(nf==Facing)
-						continue;
-					if(Facing ==0){
-						if(nf == 7||nf==0||nf==4)
-							continue;
-					}
-					if(Facing==1) {
-						if(nf ==4 || nf==1|| nf == 5)
-							continue;
-					}
-					if(Facing==2) {
-						if(nf ==5 || nf==2|| nf == 6)
-							continue;
-					}
-					if(Facing==3) {
-						if(nf ==7 || nf==3|| nf == 6)
-							continue;
-					}
-					if(Facing == 4){
-						if(nf == 7||nf==0||nf==4||nf == 1||nf==5)
-							continue;
-					}
-					if(Facing ==5){
-						if(nf==4||nf==1||nf==5||nf==2||nf==6)
-							continue;
-					}
-					if(Facing == 6){
-						if(nf==5||nf==2||nf==6||nf==3||nf==7)
-							continue;
-					}
-					if(Facing==7) {
-						if(nf==6||nf==3||nf==7||nf==0||nf==4)
-							continue;
-					}
-					break;
-				}
+	public void collision() {
+		HEALTH -=2;
+		int nf;
+		if (FlatLandMain.selectedMovement == 0) {
+			nf = Facing;
+			while (nf == Facing) {
+				nf = r.nextInt(4);
 			}
-			Facing = nf;
-			//corner();
-			
-		}	public void Manhattan() {
+		} else {
+			while (true) {
+				nf = r.nextInt(8);
+				if (nf == Facing)
+					continue;
+				if (Facing == 0) {
+					if (nf == 7 || nf == 0 || nf == 4)
+						continue;
+				}
+				if (Facing == 1) {
+					if (nf == 4 || nf == 1 || nf == 5)
+						continue;
+				}
+				if (Facing == 2) {
+					if (nf == 5 || nf == 2 || nf == 6)
+						continue;
+				}
+				if (Facing == 3) {
+					if (nf == 7 || nf == 3 || nf == 6)
+						continue;
+				}
+				if (Facing == 4) {
+					if (nf == 7 || nf == 0 || nf == 4 || nf == 1 || nf == 5)
+						continue;
+				}
+				if (Facing == 5) {
+					if (nf == 4 || nf == 1 || nf == 5 || nf == 2 || nf == 6)
+						continue;
+				}
+				if (Facing == 6) {
+					if (nf == 5 || nf == 2 || nf == 6 || nf == 3 || nf == 7)
+						continue;
+				}
+				if (Facing == 7) {
+					if (nf == 6 || nf == 3 || nf == 7 || nf == 0 || nf == 4)
+						continue;
+				}
+				break;
+			}
+		}
+		Facing = nf;
+		// corner();
+
+	}
+
+	public void manhattan() {
 		switch (Facing) {
 		case 0:
 			if (yPos <= 90)

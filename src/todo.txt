@@ -1,0 +1,9 @@
+shape collision
+shape collide health
+border collide health
+triangle
+call shape update method
+
+
+if time
+implement move for other shapes

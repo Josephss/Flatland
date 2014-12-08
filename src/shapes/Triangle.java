@@ -2,71 +2,168 @@ package shapes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
-public class Triangle extends Shapes{
+public class Triangle extends Shapes {
 
-	  	  /**
-	 * 
-	 */
-	// Movement
-	  	boolean movingLeft;
-	  	
-		  private static final long serialVersionUID = 1L;
-		  private int xPos1, xPos2, xPos3, yPos1, yPos2, yPos3;
-	  	  private Color color;
-		      
-		  public Triangle(int x1,int x2, int x3, int y1, int y2, int y3, Color c){
-		        xPos1=x1;
-		        xPos2=x2;
-		        xPos3=x3;
-		        yPos1=y1;
-		        yPos2=y2;
-		        yPos3=y3;
-		        color = c;
-		  }
-		    public int getX1(){return xPos1;}
-		    public int getX2(){return xPos2;}
-		    public int getX3(){return xPos3;}
-		    public int getY1(){return yPos1;} 
-		    public int getY2(){return yPos2;}
-		    public int getY3(){return yPos3;}
-		    public Color getColor(){return color;}
-		    public void setColor(Color c){color = c; }
-		 
-			@Override
-			public void drawShape(Graphics g) {
-				g.setColor(color);
-		        g.drawLine(xPos1,yPos1,xPos2,yPos2);
-		        g.drawLine(xPos2,yPos2,xPos3,yPos3);
-		        g.drawLine(xPos1,yPos1,xPos3,yPos3);
-		        move();
+	public Triangle(int x, int y, int s, Color c) {
+		super(x, y, s, c);
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color c) {
+		color = c;
+	}
+
+	@Override
+	public void drawShape(Graphics g) {
+		g.setColor(color);
+		g.fillPolygon(new int[] { xPos, xPos + size / 2, xPos + size }, new int[] { yPos + size, yPos, yPos + size }, 3);
+	}
+
+	@Override
+	public void move() {
+		switch (Facing) {
+		case 0:
+			yPos--;
+			break;
+		case 1:
+			xPos++;
+			break;
+		case 2:
+			yPos++;
+			break;
+		case 3:
+			xPos--;
+			break;
+		case 4:
+			xPos++;
+			yPos--;
+			break;
+		case 5:
+			xPos++;
+			yPos++;
+			break;
+		case 6:
+			xPos--;
+			yPos++;
+			break;
+		case 7:
+			xPos--;
+			yPos--;
+			break;
+		default:
+		}
+	}
+
+	private Random r = new Random();
+
+	@Override
+	public void collision() {
+		HEALTH -=2;
+		int nf;
+		if (FlatLandMain.selectedMovement == 0) {
+			nf = Facing;
+			while (nf == Facing) {
+				nf = r.nextInt(4);
 			}
-			@Override
-			public void move() {
-				//move();
-			      
-		        if((xPos1) == 800){
-					  movingLeft= true;
-				  }
-				  if((xPos1)==0){
-					  movingLeft= false;
-					  
-				  }
-				  if (movingLeft){
-					  xPos1--;
-					  xPos2--;
-					  xPos3--;
-				  } else{
-					  xPos1++;
-					  xPos2++;
-					  xPos3++;
-				  }
-				  
-		        
+		} else {
+			while (true) {
+				nf = r.nextInt(8);
+				if (nf == Facing)
+					continue;
+				if (Facing == 0) {
+					if (nf == 7 || nf == 0 || nf == 4)
+						continue;
+				}
+				if (Facing == 1) {
+					if (nf == 4 || nf == 1 || nf == 5)
+						continue;
+				}
+				if (Facing == 2) {
+					if (nf == 5 || nf == 2 || nf == 6)
+						continue;
+				}
+				if (Facing == 3) {
+					if (nf == 7 || nf == 3 || nf == 6)
+						continue;
+				}
+				if (Facing == 4) {
+					if (nf == 7 || nf == 0 || nf == 4 || nf == 1 || nf == 5)
+						continue;
+				}
+				if (Facing == 5) {
+					if (nf == 4 || nf == 1 || nf == 5 || nf == 2 || nf == 6)
+						continue;
+				}
+				if (Facing == 6) {
+					if (nf == 5 || nf == 2 || nf == 6 || nf == 3 || nf == 7)
+						continue;
+				}
+				if (Facing == 7) {
+					if (nf == 6 || nf == 3 || nf == 7 || nf == 0 || nf == 4)
+						continue;
+				}
+				break;
 			}
-			@Override
-			public void collision() {
-				// TODO Auto-generated method stub
-				
-			} 
+		}
+		Facing = nf;
+	}
+
+	public void manhattan() {
+		switch (Facing) {
+		case 0:
+			if (yPos <= 90)
+				collision();
+			break;
+		case 1:
+			if (xPos >= 800 - size)
+				collision();
+			break;
+		case 2:
+			if (yPos >= 800 - size)
+				collision();
+			break;
+		case 3:
+			if (xPos <= 0)
+				collision();
+			break;
+		case 4:
+			if (xPos >= 800 - size) {
+				collision();
+				break;
+			}
+			if (yPos <= 90)
+				collision();
+			break;
+		case 5:
+			if (xPos >= 800 - size) {
+				collision();
+				break;
+			}
+			if (yPos >= 800 - size)
+				collision();
+			break;
+		case 6:
+			if (xPos <= 0) {
+				collision();
+				break;
+			}
+			if (yPos >= 800 - size)
+				collision();
+			break;
+		case 7:
+			if (xPos <= 0) {
+				collision();
+				break;
+			}
+			if (yPos <= 90)
+				collision();
+			break;
+		}
+		move();
+	}
 }
